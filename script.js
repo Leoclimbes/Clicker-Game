@@ -1,6 +1,8 @@
 let score = 0;
 let scoreText = document.getElementById("scoreText");
 let Button1 = document.getElementById("Button1");
+let Button2 = document.getElementById("Button2");
+let goStore = document.getElementById("goStore");
 let aniimationContainer = document.getElementById("animation");
 function addScore () {
     score += 1;
@@ -23,11 +25,25 @@ let dx = Math.cos(angle) * distance;
 let dy = Math.sin(angle) * distance;
 
 plusOne.style.transform = `translate(${dx}px, ${dy}px) scale(1.2) rotate(${(Math.random() - 0.5) * 45}deg)`;
-    plusOne.style.opacity = "0";
+plusOne.style.opacity = "0";
 setTimeout(() => {
 aniimationContainer.removeChild(plusOne);
 }, 1000);
 }
+function goToStore() {
 
+    document.querySelector("h1").style.display = "none";
+    document.getElementById("gameScreen").style.display = "none";
+    document.getElementById("storeScreen").style.display = "block";
+
+    document.body.style.backgroundColor = "lightblue";;
+    
+}  
+function goHome () {
+    document.getElementById("storeScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+}
 
 Button1.onclick = addScore;
+goStore.onclick = goToStore;
+document.getElementById("goHomeButton").onclick = goHome;
