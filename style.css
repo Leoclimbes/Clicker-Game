@@ -1,0 +1,58 @@
+body {
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 100px;
+    background-color:rgb(195, 0, 255);
+}
+.game-container {
+    background-color:rgb(116, 255, 255);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(2,0,256,5);
+    display: inline-block
+    
+}
+#Button1 {
+font-size: 24px;
+padding: 15px 30px;
+margin-bottom: 20px;
+cursor: pointer;
+background-color:rgb(157, 0, 255);
+color: white;
+border: none;
+border-radius: 8px;
+}
+#Button1:hover {
+    background-color:blue;
+}
+#scoreText {
+    font-size: 24px;
+    color: #000000;
+}
+#animation {
+    position: relative;
+}
+
+.floating-plus {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(0, 47, 255);
+    pointer-events: none;
+    user-select: none;
+    opacity: 1;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    
+}
+@keyframes popUp{
+ 0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+ }
+ 50%{
+    transform: translate(-50%, -20px) scale(1.2);
+ }
+ 50%{
+    transform: translate(-50%, -60px) scale(0.8);
+}
+}
