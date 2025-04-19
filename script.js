@@ -3,6 +3,9 @@ let scoreText = document.getElementById("scoreText");
 let Button1 = document.getElementById("Button1");
 let Button2 = document.getElementById("Button2");
 let goStore = document.getElementById("goStore");
+let gifButton = document.getElementById("gifButton");
+let goSecret = document.getElementById("goSecret");
+let goFromSecret = document.getElementById("goFromSecret");
 let aniimationContainer = document.getElementById("animation");
 function addScore () {
     score += 1;
@@ -34,16 +37,29 @@ function goToStore() {
 
     document.querySelector("h1").style.display = "none";
     document.getElementById("gameScreen").style.display = "none";
-    document.getElementById("storeScreen").style.display = "block";
+    document.getElementById("storeScreen").style.display = "inline-block";
 
     document.body.style.backgroundColor = "lightblue";;
     
 }  
 function goHome () {
+    document.querySelector("h1").style.display = "block";
     document.getElementById("storeScreen").style.display = "none";
-    document.getElementById("gameScreen").style.display = "block";
+    document.getElementById("gameScreen").style.display = "inline-block";
+    document.getElementById("secretScreen").style.display = "none";
+    document.body.style.backgroundColor = "rgb(195, 0, 255)"
+    document.querySelector("#secretScreen h3").style.display = "none";
+}  
+function goSecretPage() {
+    document.getElementById("secretScreen").style.display = "inline-block";
+    document.getElementById("gameScreen").style.display = "none";
+    document.getElementById("storeScreen").style.display = "none";
+    document.querySelector("#secretScreen h3").style.display = "inline-block";
 }
 
 Button1.onclick = addScore;
 goStore.onclick = goToStore;
-document.getElementById("goHomeButton").onclick = goHome;
+goHomeButton.onclick = goHome;
+goFromSecret.onclick = goHome;
+gifButton.onclick = goSecretPage;
+
