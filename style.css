@@ -17,7 +17,7 @@ body {
     display: inline-block;
     flex-grow: 1;
     width: 90%; 
-    max-width: 600px; 
+    max-width: 550px; 
     margin: 0 auto;
 }
 
@@ -243,11 +243,7 @@ p3 {
     font-size: 18px;
 }
 
-#gameScreen {
-    width: 90%; 
-    max-width: 600px;
-    margin: 0 auto;
-}
+
 
 .gif-button {
     padding: 10px 20px;
