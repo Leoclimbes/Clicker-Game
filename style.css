@@ -134,10 +134,8 @@ h1 {
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
-    position: static;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 20px auto; 
+    display: block; 
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
