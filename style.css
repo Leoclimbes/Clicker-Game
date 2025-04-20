@@ -10,7 +10,7 @@ body {
 }
 
 .game-screen {
-    background-color: rgb(255, 116, 116);
+    background-color: rgb(116, 255, 255);
     padding: 40px;
     border-radius: 10px;
     display: inline-block;
