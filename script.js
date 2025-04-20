@@ -8,10 +8,12 @@ let goFromQuestions = document.getElementById("goFromQuestions");
 let goToQuestions = document.getElementById("goToQuestions");
 let aniimationContainer = document.getElementById("animation");
 let questionText = document.getElementById("questionText");
+let secretScreen = document.getElementById("secretScreen");
+let gameScreen = document.getElementById("gameScreen");
 let answerInput = document.getElementById("answerInput");
 let feedback = document.getElementById("feedback");
 let claimButton1 = document.getElementById("claimButton1");
-
+let hasClaimedCouch = false;
 
 let currentQuestion = null;
 
@@ -138,12 +140,18 @@ aniimationContainer.removeChild(plusOne);
 }
 function generateNewQuestion() {
     
-    let randomIndex = Math.floor(Math.random() * questions.length);
-    currentQuestion = questions[randomIndex];
+    let unansweredQuestions = questions.filter(q => !q.answered);
 
-   
-    questionText.innerText = currentQuestion.question;
-    feedback.innerText = ''; 
+    
+    if (unansweredQuestions.length > 0) {
+        let randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
+        currentQuestion = unansweredQuestions[randomIndex];
+
+        questionText.innerText = currentQuestion.question;
+        feedback.innerText = ''; 
+    } else {
+        feedback.innerText = "All questions have been answered!";
+    }
 }
 
 function checkAnswer() {
@@ -158,8 +166,6 @@ function checkAnswer() {
         feedback.innerText = "Correct! +1000 to your score.";
         score += 1000; 
         scoreText.innerText = "Score: " + score;
-       
-        
     } else {
         feedback.innerText = "Incorrect!";
     
@@ -172,10 +178,12 @@ function checkAnswer() {
         }
     
         scoreText.innerText = "Score: " + score;
-        
     }
+    
+    
+    currentQuestion.answered = true;
+    
     answerInput.value = '';
-   
 }
 
 generateNewQuestion();  
@@ -224,25 +232,31 @@ function goQuestions() {
     document.getElementById("scoreText").classList.add("hidden");
    ;
 }
+
+claimButton1.addEventListener("click", claimDoubleDecker);
+
 function claimDoubleDecker() {
-    
+    if (hasClaimedCouch) {
+        return;
+    }
+
+    hasClaimedCouch = true; 
+
     score += 10000;
     scoreText.innerText = "Score: " + score;
 
-    
-    feedback.innerText = "Congratulations! You claimed the double-decker couch and got 10,000 points!";
-    
-    
+
+
     document.getElementById("secretScreen").style.display = "none";
     document.getElementById("gameScreen").style.display = "inline-block";
-    
-    
-    document.body.style.backgroundColor = "rgb(195, 0, 255)"; 
-    document.querySelector("h1").style.display = "block"; 
+
+    document.body.style.backgroundColor = "rgb(195, 0, 255)";
+    document.querySelector("h1").style.display = "block";
     document.getElementById("gifButtonWrapper").classList.remove("hidden");
     document.getElementById("Button1").classList.remove("hidden");
     document.getElementById("scoreText").classList.remove("hidden");
 }
+
 
 Button1.onclick = addScore;
 goFromSecret.onclick = goHome;
