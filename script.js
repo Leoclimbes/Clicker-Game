@@ -1,19 +1,17 @@
 let score = 0;
 let scoreText = document.getElementById("scoreText");
 let Button1 = document.getElementById("Button1");
-let goStore = document.getElementById("goStore");
 let gifButton = document.getElementById("gifButton");
 let goSecret = document.getElementById("goSecret");
 let goFromSecret = document.getElementById("goFromSecret");
-let goHomeButton = document.getElementById("goHomeButton")
 let goFromQuestions = document.getElementById("goFromQuestions");
 let goToQuestions = document.getElementById("goToQuestions");
 let aniimationContainer = document.getElementById("animation");
 let questionText = document.getElementById("questionText");
 let answerInput = document.getElementById("answerInput");
 let feedback = document.getElementById("feedback");
-let hasMultiplier = false;
-let hasBoughtAnimation = false;
+let claimButton1 = document.getElementById("claimButton1");
+
 
 let currentQuestion = null;
 
@@ -113,8 +111,7 @@ let questions = [
   ];
 
 function addScore () {
-    let clickValue = hasMultiplier ? 5 : 1;
-    score += clickValue;
+    score += 1;
     scoreText.innerText = "Score: " + score;
     
     let plusOne = document.createElement("div");
@@ -185,88 +182,83 @@ generateNewQuestion();
     
 
 
-function goToStore() {
-
-    document.querySelector("h1").style.display = "none";
-    document.getElementById("gameScreen").style.display = "none";
-    document.getElementById("storeScreen").style.display = "inline-block";
-
-    document.body.style.backgroundColor = "lightblue";;
-    
-}  
-function goHome () {
+ 
+function goHome() {
     document.querySelector("h1").style.display = "block";
-    document.getElementById("storeScreen").style.display = "none";
     document.getElementById("gameScreen").style.display = "inline-block";
-    document.getElementById("secretScreen").style.display = "none";
     document.getElementById("questionsScreen").style.display = "none";
-    document.body.style.backgroundColor = "rgb(195, 0, 255)"
-    document.querySelector("#secretScreen h3").style.display = "none";
-}  
+    document.getElementById("secretScreen").style.display = "none";
+    document.body.style.backgroundColor = "rgb(195, 0, 255)"; 
+    document.querySelector("#secretScreen h3").style.display = "none"; 
+    
+    
+    document.getElementById("gifButtonWrapper").classList.remove("hidden");
+    document.getElementById("Button1").classList.remove("hidden");
+    document.getElementById("scoreText").classList.remove("hidden");
+}
+
 function goSecretPage() {
+     document.querySelector("h1").style.display = "none"
     document.getElementById("secretScreen").style.display = "inline-block";
     document.getElementById("gameScreen").style.display = "none";
-    document.getElementById("storeScreen").style.display = "none";
     document.querySelector("#secretScreen h3").style.display = "inline-block";
+    document.getElementById("questionsScreen").style.display = "none";
+    
+    document.getElementById("gifButtonWrapper").classList.add("hidden");
+    document.getElementById("Button1").classList.add("hidden");
+    document.getElementById("scoreText").classList.add("hidden");
+
 }
+
 function goQuestions() {
-   
+     document.querySelector("h1").style.display = "none"
     document.getElementById("gameScreen").style.display = "none";
-    document.getElementById("storeScreen").style.display = "none";
     document.getElementById("secretScreen").style.display = "none";
     document.getElementById("questionsScreen").style.display = "inline-block";
-    document.body.style.backgroundColor = "rgb(0, 110, 255)"
+    document.body.style.backgroundColor = "rgb(0, 110, 255)";
     generateNewQuestion();
+
+   
+    document.getElementById("gifButtonWrapper").classList.add("hidden");
+    document.getElementById("Button1").classList.add("hidden");
+    document.getElementById("scoreText").classList.add("hidden");
+   ;
 }
-function buyMultiplier() {
-    if (score >= 50000 && !hasMultiplier) {
-        score -= 50000;
-        scoreText.innerText = "Score: " + score;
-        hasMultiplier = true;
-        alert("You bought the 5x Multiplier! Now every click is worth 5 points.");
-    } else if (hasMultiplier) {
-        alert("You have already bought the 5x multiplier!");
-    } else {
-        alert("You don't have enough clicks for the multiplier.");
-    }
+function claimDoubleDecker() {
+    
+    score += 10000;
+    scoreText.innerText = "Score: " + score;
+
+    
+    feedback.innerText = "Congratulations! You claimed the double-decker couch and got 10,000 points!";
+    
+    
+    document.getElementById("secretScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "inline-block";
+    
+    
+    document.body.style.backgroundColor = "rgb(195, 0, 255)"; 
+    document.querySelector("h1").style.display = "block"; 
+    document.getElementById("gifButtonWrapper").classList.remove("hidden");
+    document.getElementById("Button1").classList.remove("hidden");
+    document.getElementById("scoreText").classList.remove("hidden");
 }
-function buyAnimation() {
-    if (score >= 50000 && !hasAnimation) {
-        score -= 50000;
-        scoreText.innerText = "Score: " + score;
-        hasAnimation = true;
-        alert("You bought the Funny Animal Animation! It will appear at the bottom of the screen.");
-        
-        // 
-        const funnyAnimal = document.createElement("img");
-        funnyAnimal.src = "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"; 
-        funnyAnimal.style.width = "150px";
-        funnyAnimal.style.position = "fixed"; 
-        funnyAnimal.style.bottom = "0"; 
-        funnyAnimal.style.left = "10px"; 
-        funnyAnimal.style.zIndex = "1000"; 
-        funnyAnimal.alt = "Funny Cat";
-
-        
-        document.body.appendChild(funnyAnimal); 
-    } else if (hasAnimation) {
-        alert("You have already bought the Funny Animal Animation!");
-    } else {
-        alert("You don't have enough clicks for the animation.");
-    }
-}
-
-
-
 
 Button1.onclick = addScore;
-goStore.onclick = goToStore;
-goHomeButton.onclick = goHome;
 goFromSecret.onclick = goHome;
 gifButton.onclick = goSecretPage;
 goToQuestions.onclick = goQuestions;
 goFromQuestions.onclick = goHome;
 document.getElementById("newQuestion").onclick = generateNewQuestion;
 document.getElementById("submitAnswer").onclick = checkAnswer;
-document.getElementById("multButton").onclick = buyMultiplier;
-document.getElementById("animationMult").onclick = buyAnimation;
+
+
+
+Button1.onclick = addScore;
+goFromSecret.onclick = goHome;
+gifButton.onclick = goSecretPage;
+goToQuestions.onclick = goQuestions;
+goFromQuestions.onclick = goHome;
+document.getElementById("newQuestion").onclick = generateNewQuestion;
+document.getElementById("submitAnswer").onclick = checkAnswer;
+claimButton1.onclick = claimDoubleDecker;
