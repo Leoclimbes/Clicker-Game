@@ -70,7 +70,7 @@ body {
 }
 
 #goToQuestions {
-    font-size: 15px;
+    font-size: 16px;
     padding: 5px 5px;
     margin-bottom: 20px;
     cursor: pointer;
@@ -116,7 +116,7 @@ h1 {
 #animationMult {
     display: block;
     margin: 20px auto;
-    font-size: 15px;
+    font-size: 16px;
     background-color: rgb(255, 0, 68);
     color: white;
     border: none;
@@ -141,7 +141,7 @@ h1 {
 }
 
 h3 {
-    font-size: 3rem;
+    font-size: 50px;
     align-items: center;
     min-height: 100px;
     margin-top: -20px;
@@ -150,7 +150,7 @@ h3 {
 #claimButton1 {
     display: block;
     margin: 20px auto;
-    font-size: 15px;
+    font-size: 16px;
     background-color: rgb(255, 0, 68);
     color: white;
     border: none;
@@ -221,7 +221,7 @@ p3 {
 #newQuestion {
     display: block;
     margin: 20px auto;
-    font-size: 15px;
+    font-size: 16px;
     background-color: rgb(187, 0, 255);
     color: white;
     border: none;
@@ -233,7 +233,7 @@ p3 {
 #submitAnswer {
     display: block;
     margin: 20px auto;
-    font-size: 15px;
+    font-size: 16px;
     background-color: rgb(255, 2, 162);
     color: white;
     border: none;
@@ -321,7 +321,7 @@ p3 {
     }
 
     #goHomeButton, #goFromSecret, #goFromQuestions {
-        font-size: 14px;
+        font-size: 16px;
         padding: 6px 12px;
     }
 
