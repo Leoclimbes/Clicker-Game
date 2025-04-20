@@ -17,7 +17,7 @@ body {
     display: inline-block;
     flex-grow: 1;
     width: 90%; 
-    max-width: 475px; 
+    max-width: 420px; 
     margin: 0 auto;
 }
 
