@@ -10,13 +10,13 @@ body {
 }
 
 .game-screen {
-    background-color: rgb(116, 255, 255);
+    background-color: rgb(255, 116, 116);
     padding: 40px;
     border-radius: 10px;
     display: inline-block;
     flex-grow: 1;
-    width: 90%; /* Set default width */
-    max-width: 600px; /* Limit width on large screens */
+    width: 90%; 
+    max-width: 600px; 
     margin: 0 auto;
 }
 
@@ -160,7 +160,7 @@ h3 {
 }
 
 #secretScreen img {
-    width: 100%; /* Make image responsive */
+    width: 100%; 
     max-width: 500px;
     height: auto;
 }
@@ -197,8 +197,8 @@ p3 {
     border-radius: 10px;
     display: inline-block;
     flex-grow: 1;
-    width: 90%; /* Set default width */
-    max-width: 600px; /* Limit width on larger screens */
+    width: 90%; 
+    max-width: 600px; 
     margin: 0 auto;
     text-align: center;
 }
@@ -243,7 +243,7 @@ p3 {
 }
 
 #gameScreen {
-    width: 90%; /* Adjust width based on screen */
+    width: 90%; 
     max-width: 600px;
     margin: 0 auto;
 }
@@ -264,7 +264,7 @@ p3 {
     border: 3px solid rgb(255, 0, 251);
 }
 
-/* Media Queries for responsiveness */
+
 @media (max-width: 768px) {
     #Button1 {
         font-size: 40px;
