@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    padding-top: 20px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     margin-top: 100px;
@@ -84,6 +85,8 @@ body {
 
 h1 {
     font-size: 60px;
+    margin-top: 0; 
+    padding-top: 0;
 }
 
 #goHomeButton {
@@ -138,12 +141,18 @@ h1 {
     display: block; 
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
+h2 {
+    margin-top: 0; 
+    padding-top: 0;
+}
 
 h3 {
     font-size: 50px;
     align-items: center;
     min-height: 100px;
     margin-top: -20px;
+    margin-top: 0; 
+    padding-top: 0;
 }
 
 #claimButton1 {
