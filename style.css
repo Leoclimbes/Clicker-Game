@@ -94,7 +94,7 @@ h1 {
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
-    position: fixed;
+    position: static;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -134,7 +134,7 @@ h1 {
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
-    position: fixed;
+    position: static;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -274,8 +274,7 @@ button {
     display: block; 
 }
 .double-decker {
-    background-color: rgb(116, 255, 255);
-    padding: 40px;
+    border: 1px solid rgb(0, 110, 255);
     border-radius: 10px;
     width: 90%;
     max-width: 600px;
@@ -283,6 +282,23 @@ button {
     box-sizing: border-box;
     display: block; 
 }
-
-
+#emmet {
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: block;  
+}
+#playAgain {
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+    background-color: rgb(255, 2, 162);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 25px;
+}
     

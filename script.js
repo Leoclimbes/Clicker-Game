@@ -1,4 +1,4 @@
-let score = 0;
+let score = 100000;
 let scoreText = document.getElementById("scoreText");
 let Button1 = document.getElementById("Button1");
 let gifButton = document.getElementById("gifButton");
@@ -13,6 +13,8 @@ let gameScreen = document.getElementById("gameScreen");
 let answerInput = document.getElementById("answerInput");
 let feedback = document.getElementById("feedback");
 let claimButton1 = document.getElementById("claimButton1");
+let submitAnswerButton = document.getElementById("submitAnswer");
+let playAgainButton = document.getElementById("playAgain");
 let hasClaimedCouch = false;
 
 let currentQuestion = null;
@@ -100,6 +102,7 @@ plusOne.style.opacity = "0";
 setTimeout(() => {
 aniimationContainer.removeChild(plusOne);
 }, 1000);
+youWin();
 }
 function generateNewQuestion() {
     
@@ -117,41 +120,35 @@ function generateNewQuestion() {
     }
 }
 
-function checkAnswer() {
-    if (!currentQuestion) {
-        feedback.innerText = "No question available.";
-        return;
+function submitAnswer() {
+    const userAnswer = answerInput.value.trim().toLowerCase();
+    const correctAnswers = currentQuestion.answer;
+
+    let isCorrect = false;
+
+    if (Array.isArray(correctAnswers)) {
+        isCorrect = correctAnswers.some(ans => userAnswer === ans.toLowerCase());
+    } else {
+        isCorrect = userAnswer === correctAnswers.toLowerCase();
     }
 
-    let userAnswer = answerInput.value.trim();
-    
-    if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-        feedback.innerText = "Correct! +1000 to your score.";
-        score += 1000; 
-        scoreText.innerText = "Score: " + score;
+    if (isCorrect) {
+        score += 1000;
+        feedback.textContent = "Correct! +1000";
+        feedback.style.color = "lime";
+        youWin();
     } else {
-        feedback.innerText = "Incorrect!";
-    
+        feedback.textContent = `Wrong! -1000. The correct answer is: ${currentQuestion.answer}`;
+        feedback.style.color = "red";
         if (score >= 1000) {
             score -= 1000;
-            feedback.innerText += " -1000 points from your score.";
-        } else {
-            score = 0;
-            feedback.innerText += " Score -1000.";
         }
-    
-        scoreText.innerText = "Score: " + score;
     }
-    
-    
-    currentQuestion.answered = true;
-    
-    answerInput.value = '';
+
+    scoreText.textContent = `Score: ${score}`;
+    answerInput.value = "";
 }
-
 generateNewQuestion();  
-    
-
 
  
 function goHome() {
@@ -207,7 +204,7 @@ function claimDoubleDecker() {
 
     score += 10000;
     scoreText.innerText = "Score: " + score;
-
+    youWin();
 
 
     document.getElementById("secretScreen").style.display = "none";
@@ -219,6 +216,23 @@ function claimDoubleDecker() {
     document.getElementById("Button1").classList.remove("hidden");
     document.getElementById("scoreText").classList.remove("hidden");
 }
+function youWin() {
+    if (score >= 100000) {
+        
+        document.getElementById("win-screen").style.display ="block";
+        document.getElementById("gameScreen").style.display = "none";
+        document.getElementById("questionsScreen").style.display = "none";
+        document.getElementById("secretScreen").style.display = "none";
+        document.querySelector("h1").style.display = "none";
+    }
+}
+
+function playAgain() {
+    score = 0;
+    scoreText.innerText = 0;
+    document.getElementById("win-screen").style.display = "none"; 
+    document.getElementById("gameScreen").style.display = "inline-block";
+}
 
 
 Button1.onclick = addScore;
@@ -227,15 +241,6 @@ gifButton.onclick = goSecretPage;
 goToQuestions.onclick = goQuestions;
 goFromQuestions.onclick = goHome;
 document.getElementById("newQuestion").onclick = generateNewQuestion;
-document.getElementById("submitAnswer").onclick = checkAnswer;
-
-
-
-Button1.onclick = addScore;
-goFromSecret.onclick = goHome;
-gifButton.onclick = goSecretPage;
-goToQuestions.onclick = goQuestions;
-goFromQuestions.onclick = goHome;
-document.getElementById("newQuestion").onclick = generateNewQuestion;
-document.getElementById("submitAnswer").onclick = checkAnswer;
+submitAnswerButton.onclick = submitAnswer;
 claimButton1.onclick = claimDoubleDecker;
+playAgainButton.onclick = playAgain;
