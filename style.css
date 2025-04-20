@@ -263,6 +263,16 @@ p3 {
 button {
     touch-action: manipulation;
 }
+.game-screen, .questionsScreen {
+    background-color: rgb(116, 255, 255);
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: block; 
+}
 
 
 
