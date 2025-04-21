@@ -1,4 +1,4 @@
-let score = 0;
+let score = 100000;
 let scoreText = document.getElementById("scoreText");
 let Button1 = document.getElementById("Button1");
 let gifButton = document.getElementById("gifButton");
@@ -362,9 +362,10 @@ function submitAnswer() {
     }
 
     scoreText.textContent = `Score: ${score}`;
-    answerInput.value = "";
+    answerInput.value = "";;
 }
-generateNewQuestion();  
+generateNewQuestion();
+
 
  
 function goHome() {
