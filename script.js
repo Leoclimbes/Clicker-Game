@@ -352,10 +352,10 @@ function submitAnswer() {
     if (isCorrect) {
         score += 1000;
         feedback.textContent = "Correct! +1000";
-        feedback.style.color = "lime";
+        feedback.style.color = "rgb(91, 196, 115)";
     } else {
         feedback.textContent = `Wrong! -1000. The correct answer is: ${currentQuestion.answer}`;
-        feedback.style.color = "red";
+        feedback.style.color = "rgb(249, 80, 80)";
         if (score >= 1000) {
             score -= 1000;
         }
