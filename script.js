@@ -321,6 +321,8 @@ aniimationContainer.removeChild(plusOne);
 }, 1000);
 youWin();
 }
+
+
 function generateNewQuestion() {
     
     let unansweredQuestions = questions.filter(q => !q.answered);
@@ -363,10 +365,12 @@ function submitAnswer() {
 
     scoreText.textContent = `Score: ${score}`;
     answerInput.value = "";;
+
+    currentQuestion.answered = true;
+
+    
 }
 generateNewQuestion();
-
-
  
 function goHome() {
     document.querySelector("h1").style.display = "block";
