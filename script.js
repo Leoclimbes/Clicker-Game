@@ -1,4 +1,4 @@
-let score = 100;
+let score = 0;
 let scoreText = document.getElementById("scoreText");
 let Button1 = document.getElementById("Button1");
 let gifButton = document.getElementById("gifButton");
