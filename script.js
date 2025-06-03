@@ -98,7 +98,7 @@ let questions =  [
         { "question": "What vitamin do you get from sunlight?", "answer": "Vitamin D", "used": false },
         { "question": "What instrument has 88 keys?", "answer": "Piano", "used": false },
         { "question": "What geometric shape has four equal sides and angles?", "answer": "Square", "used": false },
-        { "question": "Which gas do humans exhale?", "answer": "Carbon dioxide", "used": false },
+        { "question": "What gas do humans exhale?", "answer": "Carbon dioxide", "used": false },
         { "question": "Which element is used in pencils?", "answer": "Graphite", "used": false },
         { "question": "What is the smallest unit of life?", "answer": "Cell", "used": false },
         { "question": "Which country hosted the 2016 Summer Olympics?", "answer": "Brazil", "used": false },
