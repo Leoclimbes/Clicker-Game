@@ -449,7 +449,7 @@ function youWin() {
 }
 
 function playAgain() {
-    score = 0;
+    score = 1;
     scoreText.innerText = 0;
     document.getElementById("win-screen").style.display = "none"; 
     document.getElementById("gameScreen").style.display = "inline-block";
